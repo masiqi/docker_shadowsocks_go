@@ -13,8 +13,8 @@ WORKDIR /tmp/
 RUN set -ex \
   && apk update \
   && apk add --no-cache --virtual .build-deps curl \
-  && curl -sSL $SSGO_URL -o ssgo.gz
-  && gunzip ssgo.gz
+  && curl -sSL $SSGO_URL -o ssgo.gz \
+  && gunzip ssgo.gz \
   && chmod +x ./* \
   && mv ./ssgo /usr/local/bin \
   && apk del .build-deps
